@@ -17,7 +17,7 @@ class MITS_productsImageFilenames {
   function __construct() {
     $this->code = 'MITS_productsImageFilenames';
     $this->name = 'MODULE_CATEGORIES_' . strtoupper($this->code);
-    $this->version = defined($this->name . '_VERSION') ? constant($this->name . '_VERSION') : '1.2';
+    $this->version = defined($this->name . '_VERSION') ? constant($this->name . '_VERSION') : '1.2.1';
     $this->title = constant($this->name . '_TITLE') . ' - v' . $this->version;
     $this->description = constant($this->name . '_DESCRIPTION');
     $this->sort_order = defined($this->name . '_SORT_ORDER') ? constant($this->name . '_SORT_ORDER') : 0;
@@ -25,8 +25,11 @@ class MITS_productsImageFilenames {
 
     if (!defined($this->name . '_VERSION') && defined($this->name . '_STATUS') && constant($this->name . '_STATUS') == 'true') {
       xtc_db_query("INSERT INTO " . TABLE_CONFIGURATION . " (configuration_key, configuration_value, configuration_group_id, sort_order, set_function, date_added) VALUES ('" . $this->name . "_VERSION', '" . $this->version . "', 6, 99, NULL, now())");
-    } elseif(defined($this->name . '_VERSION') && defined($this->name . '_STATUS') && constant($this->name . '_STATUS') == 'true') {
-      xtc_db_query("UPDATE " . TABLE_CONFIGURATION . " SET configuration_value = '" . $this->version . "' WHERE configuration_key = '" . $this->name . "_VERSION'");
+    } else {
+      $version_query = xtc_db_query("SELECT configuration_value FROM " . TABLE_CONFIGURATION . " WHERE configuration_key = '" . $this->name . "_VERSION'");
+      if (xtc_db_num_rows($version_query)) {
+        xtc_db_query("UPDATE " . TABLE_CONFIGURATION . " SET configuration_value = '" . $this->version . "' WHERE configuration_key = '" . $this->name . "_VERSION'");
+      }
     }
   }
 

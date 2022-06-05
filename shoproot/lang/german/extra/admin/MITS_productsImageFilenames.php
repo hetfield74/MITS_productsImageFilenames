@@ -22,7 +22,7 @@ define('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_DESCRIPTION', '
 define('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_FILENAME_TITLE','Dateiname bilden:');
 define('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_FILENAME_DESC','Woraus soll der Dateiname gebildet werden?
 <ul>
-<li>None/deaktiviert: Der Dateiname wird aus der products_id gebildet (Systemstandrad)</li>
+<li>None/deaktiviert: Der Dateiname wird aus der products_id gebildet (Systemstandard)</li>
 <li>Filename: Der Dateiname des hochgeladenen Bildes wird behalten</li>
 <li>Productsname: Der Artikelname wird in den Dateinamen integriert</li>
 </ul>');

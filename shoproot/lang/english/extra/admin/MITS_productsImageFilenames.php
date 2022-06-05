@@ -12,25 +12,25 @@
  * --------------------------------------------------------------
  */
 
-define('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_TITLE', 'MITS Dateinamen f&uuml;r Artikelbilder &copy; by <span style="padding:2px;background:#ffe;color:#6a9;font-weight:bold;">Hetfield (MerZ IT-SerVice)</span>');
+define('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_TITLE', 'MITS File names for article pictures &copy; by <span style="padding:2px;background:#ffe;color:#6a9;font-weight:bold;">Hetfield (MerZ IT-SerVice)</span>');
 define('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_DESCRIPTION', '
   <div>    
-    <p>Mit dieser Erweiterung lassen sich verschiedene Variationen von Dateinamen f&uuml;r Artikelbilder steuern.</p>
-    <p>Bei Fragen, Problemen oder W&uuml;nschen zu diesem Modul oder auch zu anderen Anliegen rund um die modified eCommerce Shopsoftware nehmen Sie einfach Kontakt zu uns auf:</p> 
-    <div style="text-align:center;"><a style="background:#6a9;color:#444" target="_blank" href="https://www.merz-it-service.de/Kontakt.html" class="button" onclick="this.blur();">Kontaktseite auf MerZ-IT-SerVice.de</strong></a></div>
+    <p>With this expansion, different variations of file names can be controlled for article images.</p>
+    <p>If you have any questions, problems or wishes for this module or other concerns about the modified eCommerce shopsoftware, simply contact us:</p> 
+    <div style="text-align:center;"><a style="background:#6a9;color:#444" target="_blank" href="https://www.merz-it-service.de/Kontakt.html" class="button" onclick="this.blur();">Contact page on merz-it-service.de</strong></a></div>
   </div>');
-define('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_FILENAME_TITLE','Dateiname bilden:');
-define('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_FILENAME_DESC','Woraus soll der Dateiname gebildet werden?
+define('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_FILENAME_TITLE','Form file name:');
+define('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_FILENAME_DESC','What should the file name be formed from?
 <ul>
-<li>None/deaktiviert: Der Dateiname wird aus der products_id gebildet (Systemstandrad)</li>
-<li>Filename: Der Dateiname des hochgeladenen Bildes wird behalten</li>
-<li>Productsname: Der Artikelname wird in den Dateinamen integriert</li>
+<li>None/Deactivated: The file name is formed from the products_id (system standard)</li>
+<li>Filename: The file name of the uploaded image will be kept</li>
+<li>Productsname: The article name is integrated into the file name</li>
 </ul>');
-define('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_ADD_ID_TITLE', 'Artikel-ID:');
-define('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_ADD_ID_DESC', 'Soll die Artikel-ID (products_id) in den Dateinamen integriert werden? <small>Dies geschieht automatisch bei Dateiname bilden = None.</small>');
-define('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_ADD_COUNTER_TITLE', 'Bildz&auml;hler ein?');
-define('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_ADD_COUNTER_DESC', 'Soll der Bildz&auml;hler in den Dateinamen integriert werden? Empfohlen um Verwechslungen zu vermeiden, geschieht automatisch bei Dateiname bilden = None.');
-define('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_LOWERNAME_TITLE', 'Dateiname in Kleinbuchstaben');
-define('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_LOWERNAME_DESC', 'Dateiname bei Bildern in Kleinbuchstaben erzwingen?');
-define('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_LOWERSUFFIX_TITLE', 'Dateiendung in Kleinbuchstaben');
-define('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_LOWERSUFFIX_DESC', 'Dateiendung bei Bildern in Kleinbuchstaben erzwingen (z.B. .JPG -> .jpg)');
+define('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_ADD_ID_TITLE', 'Article-ID:');
+define('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_ADD_ID_DESC', 'Should the article ID (Products_ID) be integrated into the file name? <small> This happens automatically with file name = none. </small>');
+define('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_ADD_COUNTER_TITLE', 'Image counter?');
+define('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_ADD_COUNTER_DESC', 'Should the image counter be integrated into the file name? Recommended to avoid confusion is automatically formed in file name = None.');
+define('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_LOWERNAME_TITLE', 'File name in small letters');
+define('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_LOWERNAME_DESC', 'Forced the file name for pictures in small letters?');
+define('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_LOWERSUFFIX_TITLE', 'File extension in small letters');
+define('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_LOWERSUFFIX_DESC', 'Forced the file extension for images in small letters (e.g. .JPG -> .jpg)');
