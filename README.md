@@ -53,7 +53,7 @@ Die Installation des Klassenerweiterungsmodul MITS_productsImageFilenames für m
 
 <hr />
 
-Benötigen sie Unterstützung bei der indivduellen Anpassung des Modul oder haben sie eventuell doch Probleme beim Einbau?
+Benötigen sie Unterstützung bei der individuellen Anpassung des Moduls oder haben sie eventuell doch Probleme beim Einbau?
 Gerne können sie unseren kostenpflichtigen Support in Anspruch nehmen.
 Kontaktieren sie uns einfach unter <a href="https://www.merz-it-service.de/Kontakt.html">info(at)merz-it-service.de</a>
 
