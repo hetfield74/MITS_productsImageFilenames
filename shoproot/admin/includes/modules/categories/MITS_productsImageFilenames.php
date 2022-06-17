@@ -17,7 +17,7 @@ class MITS_productsImageFilenames {
   function __construct() {
     $this->code = 'MITS_productsImageFilenames';
     $this->name = 'MODULE_CATEGORIES_' . strtoupper($this->code);
-    $this->version = '1.2.2';
+    $this->version = '1.2.3';
     $this->title = constant($this->name . '_TITLE') . ' - v' . $this->version;
     $this->description = constant($this->name . '_DESCRIPTION');
     $this->sort_order = defined($this->name . '_SORT_ORDER') ? constant($this->name . '_SORT_ORDER') : 0;
@@ -41,11 +41,6 @@ class MITS_productsImageFilenames {
   }
 
   function keys() {
-    defined($this->name . '_STATUS_TITLE') or define($this->name . '_STATUS_TITLE', TEXT_DEFAULT_STATUS_TITLE);
-    defined($this->name . '_STATUS_DESC') or define($this->name . '_STATUS_DESC', TEXT_DEFAULT_STATUS_DESC);
-    defined($this->name . '_SORT_ORDER_TITLE') or define($this->name . '_SORT_ORDER_TITLE', TEXT_DEFAULT_SORT_ORDER_TITLE);
-    defined($this->name . '_SORT_ORDER_DESC') or define($this->name . '_SORT_ORDER_DESC', TEXT_DEFAULT_SORT_ORDER_DESC);
-
     return array(
       $this->name . '_STATUS',
       $this->name . '_SORT_ORDER',
