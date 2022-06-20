@@ -17,7 +17,7 @@ class MITS_productsImageFilenames {
   function __construct() {
     $this->code = 'MITS_productsImageFilenames';
     $this->name = 'MODULE_CATEGORIES_' . strtoupper($this->code);
-    $this->version = '1.2.3';
+    $this->version = '1.2.4';
     $this->title = constant($this->name . '_TITLE') . ' - v' . $this->version;
     $this->description = constant($this->name . '_DESCRIPTION');
     $this->sort_order = defined($this->name . '_SORT_ORDER') ? constant($this->name . '_SORT_ORDER') : 0;
