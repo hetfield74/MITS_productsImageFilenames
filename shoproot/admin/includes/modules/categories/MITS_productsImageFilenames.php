@@ -13,11 +13,12 @@
  */
 
 class MITS_productsImageFilenames {
+  var $code, $name, $version, $title, $description, $sort_order, $enabled, $_check;
 
   function __construct() {
     $this->code = 'MITS_productsImageFilenames';
     $this->name = 'MODULE_CATEGORIES_' . strtoupper($this->code);
-    $this->version = '1.2.4';
+    $this->version = '1.2.5';
     $this->title = constant($this->name . '_TITLE') . ' - v' . $this->version;
     $this->description = constant($this->name . '_DESCRIPTION');
     $this->sort_order = defined($this->name . '_SORT_ORDER') ? constant($this->name . '_SORT_ORDER') : 0;
@@ -34,8 +35,12 @@ class MITS_productsImageFilenames {
 
   function check() {
     if (!isset($this->_check)) {
-      $check_query = xtc_db_query("SELECT configuration_value FROM " . TABLE_CONFIGURATION . " WHERE configuration_key = '" . $this->name . "_STATUS'");
-      $this->_check = xtc_db_num_rows($check_query);
+      if (defined($this->name . '_STATUS')) {
+        $this->_check = true;
+      } else {
+        $check_query = xtc_db_query("SELECT configuration_value FROM " . TABLE_CONFIGURATION . " WHERE configuration_key = '" . $this->name . "_STATUS'");
+        $this->_check = xtc_db_num_rows($check_query);
+      }
     }
     return $this->_check;
   }
@@ -95,10 +100,10 @@ class MITS_productsImageFilenames {
     }
 
     // Trenner mit Zähler hinzufügen (empfohlen)
-    if (constant($this->name . '_ADD_COUNTER') == 'true' || constant($this->name . '_FILENAME') == 'None') {
-      $separator = (((string)$counter != '') ? '_' . $counter : '');
-    } else {
+    if (constant($this->name . '_ADD_COUNTER') == 'false' && constant($this->name . '_FILENAME') == 'Filename') {
       $separator = '';
+    } else {
+      $separator = (((string)$counter != '') ? '_' . $counter : '');
     }
 
     // products_id in dem Dateinamen integrieren (empfohlen) oder Pflicht bei Auswahl FILENAME = None

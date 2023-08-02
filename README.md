@@ -53,6 +53,15 @@ Die Installation des Klassenerweiterungsmodul MITS_productsImageFilenames für m
 
 <hr />
 
+### Was geschieht mit den bereits vorhandenen Bildern?
+
+Dafür haben wir eine spezielle Erweiterung für dieses Modul erstellt. 
+Diese vergibt allen bereits hochgeladenen Bildern mit Standard-Systemnamen (z.B. 12_0.jpg) einen neuen Dateinamen, basierend auf den Artikelnamen. 
+Bilddateien, die bereits einen angepassten Namen besitzen, werden nicht umbenannt.
+Diese Erweiterung kann kostenpflichtig bei uns per E-Mail angefragt werden.
+
+<hr />
+
 Benötigen sie Unterstützung bei der individuellen Anpassung des Moduls oder haben sie eventuell doch Probleme beim Einbau?
 Gerne können sie unseren kostenpflichtigen Support in Anspruch nehmen.
 Kontaktieren sie uns einfach unter <a href="https://www.merz-it-service.de/Kontakt.html">info(at)merz-it-service.de</a>
