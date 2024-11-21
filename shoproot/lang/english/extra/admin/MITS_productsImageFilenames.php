@@ -22,7 +22,7 @@ defined('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_TITLE') or define('MODULE
 defined('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_DESCRIPTION') or define('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_DESCRIPTION', '
   <div>
     <a href="https://www.merz-it-service.de/" target="_blank" title="go to the website from MerZ IT-SerVice">
-      <img src="' . DIR_WS_CATALOG . (defined('DIR_ADMIN') ? DIR_ADMIN : 'admin/') . 'images/merz-it-service.png" border="0" alt="MerZ IT-SerVice" style="display:block;max-width:100%;height:auto;" />
+      <img src="' . HTTPS_SERVER . DIR_WS_CATALOG . (defined('DIR_ADMIN') ? DIR_ADMIN : 'admin/') . 'images/merz-it-service.png" border="0" alt="MerZ IT-SerVice" style="display:block;max-width:100%;height:auto;">
     </a><br />
     <p>With this expansion, different variations of file names can be controlled for article images.</p>
     ' . $convert_tool . '
@@ -34,7 +34,7 @@ defined('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_FILENAME_DESC') or define
 <ul>
 <li>None/Deactivated: The file name is formed from the products_id (system standard)</li>
 <li>Filename: The file name of the uploaded image will be kept</li>
-<li>Productsname: The article name is integrated into the file name</li>
+<li>Productsname: The article name or category name is integrated into the file name</li>
 </ul>');
 defined('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_ADD_ID_TITLE') or define('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_ADD_ID_TITLE', 'Article-ID:');
 defined('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_ADD_ID_DESC') or define('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_ADD_ID_DESC', 'Should the article ID (Products_ID) be integrated into the file name? <small> This happens automatically with file name = <i>None</i>. </small>');

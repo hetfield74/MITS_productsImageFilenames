@@ -22,7 +22,7 @@ defined('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_TITLE') or define('MODULE
 defined('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_DESCRIPTION') or define('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_DESCRIPTION', '
   <div>
     <a href="https://www.merz-it-service.de/" target="_blank" title="Gehe zur Homepage von MerZ IT-SerVice">
-        <img src="' . DIR_WS_CATALOG . (defined('DIR_ADMIN') ? DIR_ADMIN : 'admin/') . 'images/merz-it-service.png" border="0" alt="MerZ IT-SerVice" style="display:block;max-width:100%;height:auto;" />
+        <img src="' . HTTPS_SERVER . DIR_WS_CATALOG . (defined('DIR_ADMIN') ? DIR_ADMIN : 'admin/') . 'images/merz-it-service.png" border="0" alt="MerZ IT-SerVice" style="display:block;max-width:100%;height:auto;">
     </a><br /> 
     <p>Mit dieser Erweiterung lassen sich verschiedene Variationen von Dateinamen f&uuml;r Artikelbilder steuern.</p>
     ' . $convert_tool . '
@@ -34,7 +34,7 @@ defined('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_FILENAME_DESC') or define
 <ul>
 <li>None/deaktiviert: Der Dateiname wird aus der products_id gebildet (Systemstandard)</li>
 <li>Filename: Der Dateiname des hochgeladenen Bildes wird behalten</li>
-<li>Productsname: Der Artikelname wird in den Dateinamen integriert</li>
+<li>Productsname: Der Artikelname bzw. Kategoriename wird in den Dateinamen integriert</li>
 </ul>');
 defined('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_ADD_ID_TITLE') or define('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_ADD_ID_TITLE', 'Artikel-ID:');
 defined('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_ADD_ID_DESC') or define('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_ADD_ID_DESC', 'Soll die Artikel-ID (products_id) in den Dateinamen integriert werden? <small>Dies geschieht automatisch bei Dateiname bilden = <i>None</i>.</small>');

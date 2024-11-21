@@ -47,7 +47,9 @@ Die Installation des Klassenerweiterungsmodul MITS_productsImageFilenames für m
        installiert.
 
     6. Konfigurieren sie nun das Modul über den Button "Bearbeiten" nach ihren Wünschen. 
-       Die verschiedenen Einstellmöglichkeiten sind im Modul erklärt.
+       Die verschiedenen Einstellmöglichkeiten sind im Modul erklärt. 
+       Wenn sie das Erweiterungsscript zum Umbenennen von bereits existierenden Bildern gekauft und hochgeladen haben, 
+       dann finden sie hier den entsprechenden Button.
 
     7. Fertig!
 
