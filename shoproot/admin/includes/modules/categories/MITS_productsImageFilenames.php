@@ -27,7 +27,7 @@ class MITS_productsImageFilenames
     {
         $this->code = 'MITS_productsImageFilenames';
         $this->name = 'MODULE_CATEGORIES_' . strtoupper($this->code);
-        $this->version = '1.2.8';
+        $this->version = '1.2.9';
         $this->title = constant($this->name . '_TITLE') . ' - v' . $this->version;
         $this->description = constant($this->name . '_DESCRIPTION');
         $this->sort_order = defined($this->name . '_SORT_ORDER') ? constant($this->name . '_SORT_ORDER') : 0;
@@ -64,7 +64,8 @@ class MITS_productsImageFilenames
           $this->name . '_ADD_ID',
           $this->name . '_ADD_COUNTER',
           $this->name . '_LOWERNAME',
-          $this->name . '_LOWERSUFFIX'
+          $this->name . '_LOWERSUFFIX',
+          $this->name . '_SEPARATOR'
         );
     }
 
@@ -92,6 +93,9 @@ class MITS_productsImageFilenames
           "INSERT INTO " . TABLE_CONFIGURATION . " (configuration_key, configuration_value, configuration_group_id, sort_order, set_function, date_added) VALUES ('" . $this->name . "_LOWERSUFFIX', 'true', 6, 8,'xtc_cfg_select_option(array(\'true\', \'false\'), ', now())"
         );
         xtc_db_query(
+          "INSERT INTO " . TABLE_CONFIGURATION . " (configuration_key, configuration_value, configuration_group_id, sort_order, set_function, date_added) VALUES ('" . $this->name . "_SEPARATOR', '_', 6, 8,'xtc_cfg_select_option(array(\'-\', \'_\'), ', now())"
+        );
+        xtc_db_query(
           "INSERT INTO " . TABLE_CONFIGURATION . " (configuration_key, configuration_value, configuration_group_id, sort_order, set_function, date_added) VALUES ('" . $this->name . "_VERSION', '" . $this->version . "', 6, 99, NULL, now())"
         );
     }
@@ -117,10 +121,10 @@ class MITS_productsImageFilenames
         } elseif (constant($this->name . '_FILENAME') == 'Productsname') {
             if (isset($data_arr['products_name'])) {
                 include_once(DIR_FS_INC . 'seo_url_href_mask.php');
-                $name = str_replace('/', '_', seo_url_href_mask($data_arr['products_name'][$_SESSION['languages_id']]));
+                $name = str_replace('/', constant($this->name . '_SEPARATOR'), seo_url_href_mask($data_arr['products_name'][$_SESSION['languages_id']]));
             } elseif (isset($data_arr['categories_name'])) {
                 include_once(DIR_FS_INC . 'seo_url_href_mask.php');
-                $name = str_replace('/', '_', seo_url_href_mask($data_arr['categories_name'][$_SESSION['languages_id']]));
+                $name = str_replace('/', constant($this->name . '_SEPARATOR'), seo_url_href_mask($data_arr['categories_name'][$_SESSION['languages_id']]));
             } else {
                 $name = '';
             }
@@ -142,7 +146,7 @@ class MITS_productsImageFilenames
                 $catimages = '_mobile';
             }
         } else {
-            $separator = ((string)$counter != '') ? '_' . $counter : '';
+            $separator = ((string)$counter != '') ? constant($this->name . '_SEPARATOR') . $counter : '';
         }
 
         // products_id in dem Dateinamen integrieren (empfohlen) oder Pflicht bei Auswahl FILENAME = None
@@ -150,7 +154,7 @@ class MITS_productsImageFilenames
             if (constant($this->name . '_FILENAME') == 'None' || $name == '') {
                 $name = $id;
             } else {
-                $name = $name . '_' . $id;
+                $name = $name . constant($this->name . '_SEPARATOR') . $id;
             }
         }
 
