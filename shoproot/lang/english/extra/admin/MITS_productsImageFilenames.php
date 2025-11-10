@@ -23,7 +23,7 @@ if (defined('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_STATUS') && MODULE_CA
 }
 
 $lang_array = array(
-  'MODULE_' . $modulname . '_TITLE'                              => 'MITS File names for article pictures <span style="white-space:nowrap;">&copy; by <span style="padding:2px;background:#ffe;color:#6a9;font-weight:bold;">Hetfield (MerZ IT-SerVice)</span></span>',
+  'MODULE_' . $modulname . '_TITLE'                              => 'MITS File names for article and categorie pictures <span style="white-space:nowrap;">&copy; by <span style="padding:2px;background:#ffe;color:#6a9;font-weight:bold;">Hetfield (MerZ IT-SerVice)</span></span>',
   'MODULE_' . $modulname . '_DESCRIPTION'                        => '
   <div>
     <a href="https://www.merz-it-service.de/" target="_blank" title="go to the website from MerZ IT-SerVice">
@@ -58,7 +58,15 @@ $lang_array = array(
   'MODULE_' . $modulname . '_STATUS_TITLE'                       => 'Enable module?',
   'MODULE_' . $modulname . '_STATUS_DESC'                        => 'Modules status',
   'MODULE_' . $modulname . '_SORT_ORDER_TITLE'                   => 'Sort order',
-  'MODULE_' . $modulname . '_SORT_ORDER_DESC'                    => 'Order of processing. Smallest number is executed first.'
+  'MODULE_' . $modulname . '_SORT_ORDER_DESC'                    => 'Order of processing. Smallest number is executed first.',
+  'MODULE_' . $modulname . '_UPDATE_AVAILABLE_TITLE'             => ' <span style="font-weight:bold;color:#900;background:#ff6;padding:2px;border:1px solid #900;">Please carry out module updates!</span>',
+  'MODULE_' . $modulname . '_UPDATE_AVAILABLE_DESC'              => '',
+  'MODULE_' . $modulname . '_UPDATE_FINISHED'                    => 'The Modul MITS File names for article and categorie pictures module has been updated.',
+  'MODULE_' . $modulname . '_UPDATE_ERROR'                       => 'Error',
+  'MODULE_' . $modulname . '_UPDATE_MODUL'                       => 'Update module',
+  'MODULE_' . $modulname . '_DELETE_MODUL'                       => 'The MITS File names for article and categorie pictures module has been deleted from the server.',
+  'MODULE_' . $modulname . '_CONFIRM_DELETE_MODUL'               => 'Are you sure you want to delete the MITS File names for article and categorie pictures module and all files from the server?',
+  'MODULE_' . $modulname . '_DELETE_FINISHED'                    => 'The MITS File names for article and categorie pictures module has been deleted from the server.',
 );
 
 foreach ($lang_array as $key => $val) {

@@ -23,13 +23,13 @@ if (defined('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_STATUS') && MODULE_CA
 }
 
 $lang_array = array(
-  'MODULE_' . $modulname . '_TITLE'                              => 'MITS Dateinamen f&uuml;r Artikelbilder <span style="white-space:nowrap;">&copy; by <span style="padding:2px;background:#ffe;color:#6a9;font-weight:bold;">Hetfield (MerZ IT-SerVice)</span></span>',
+  'MODULE_' . $modulname . '_TITLE'                              => 'MITS Dateinamen f&uuml;r Artikel- und Kategoriebilder <span style="white-space:nowrap;">&copy; by <span style="padding:2px;background:#ffe;color:#6a9;font-weight:bold;">Hetfield (MerZ IT-SerVice)</span></span>',
   'MODULE_' . $modulname . '_DESCRIPTION'                        => '
         <div>
     <a href="https://www.merz-it-service.de/" target="_blank" title="Gehe zur Homepage von MerZ IT-SerVice">
         <img src="' . HTTPS_SERVER . DIR_WS_CATALOG . (defined('DIR_ADMIN') ? DIR_ADMIN : 'admin/') . 'images/merz-it-service.png" border="0" alt="MerZ IT-SerVice" style="display:block;max-width:100%;height:auto;">
     </a><br /> 
-    <p>Mit dieser Erweiterung lassen sich verschiedene Variationen von Dateinamen f&uuml;r Artikelbilder steuern.</p>
+    <p>Mit dieser Erweiterung lassen sich verschiedene Variationen von Dateinamen f&uuml;r Artikel- und Kategoriebilder steuern.</p>
     ' . $convert_tool . '
     <div style="text-align:center;">
       <small>Nur auf Github gibt es immer die aktuellste Version des Moduls!</small><br />
@@ -58,7 +58,15 @@ $lang_array = array(
   'MODULE_' . $modulname . '_STATUS_TITLE'                       => 'Modul aktivieren?',
   'MODULE_' . $modulname . '_STATUS_DESC'                        => 'Modul Status',
   'MODULE_' . $modulname . '_SORT_ORDER_TITLE'                   => 'Sortierreihenfolge',
-  'MODULE_' . $modulname . '_SORT_ORDER_DESC'                    => 'Reihenfolge der Verarbeitung. Kleinste Ziffer wird zuerst ausgef&uuml;hrt.'
+  'MODULE_' . $modulname . '_SORT_ORDER_DESC'                    => 'Reihenfolge der Verarbeitung. Kleinste Ziffer wird zuerst ausgef&uuml;hrt.',
+  'MODULE_' . $modulname . '_UPDATE_AVAILABLE_TITLE'             => ' <span style="font-weight:bold;color:#900;background:#ff6;padding:2px;border:1px solid #900;">Bitte Modulaktualisierung durchf&uuml;hren!</span>',
+  'MODULE_' . $modulname . '_UPDATE_AVAILABLE_DESC'              => '',
+  'MODULE_' . $modulname . '_UPDATE_FINISHED'                    => 'Das Modul MITS Dateinamen f&uuml;r Artikel- und Kategoriebilder wurde aktualisiert.',
+  'MODULE_' . $modulname . '_UPDATE_ERROR'                       => 'Fehler',
+  'MODULE_' . $modulname . '_UPDATE_MODUL'                       => 'Modul aktualisieren',
+  'MODULE_' . $modulname . '_DELETE_MODUL'                       => 'MITS Dateinamen f&uuml;r Artikel- und Kategoriebilder komplett vom Server entfernen',
+  'MODULE_' . $modulname . '_CONFIRM_DELETE_MODUL'               => 'M&ouml;chten sie das Modul MITS Dateinamen f&uuml;r Artikel- und Kategoriebilder mit allen Dateien wirklich vom Server l&ouml;schen?',
+  'MODULE_' . $modulname . '_DELETE_FINISHED'                    => 'Das Modul MITS Dateinamen f&uuml;r Artikel- und Kategoriebilder wurde vom Server gel&ouml;scht.',
 );
 
 foreach ($lang_array as $key => $val) {
