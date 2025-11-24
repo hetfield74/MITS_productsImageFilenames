@@ -31,7 +31,7 @@ class MITS_productsImageFilenames
     {
         $this->code = 'MITS_productsImageFilenames';
         $this->name = 'MODULE_CATEGORIES_' . strtoupper($this->code);
-        $this->version = '1.3.0';
+        $this->version = '1.3.1';
         $this->sort_order = defined($this->name . '_SORT_ORDER') ? constant($this->name . '_SORT_ORDER') : 0;
         $this->enabled = defined($this->name . '_STATUS') && (constant($this->name . '_STATUS') == 'true');
 
@@ -154,7 +154,6 @@ class MITS_productsImageFilenames
           DIR_FS_DOCUMENT_ROOT . (defined('DIR_ADMIN') ? DIR_ADMIN : 'admin/') . 'includes/modules/categories/' . $this->code . '.php',
           DIR_FS_DOCUMENT_ROOT . 'lang/english/modules/categories/' . $this->code . '.php',
           DIR_FS_DOCUMENT_ROOT . 'lang/german/modules/categories/' . $this->code . '.php',
-          DIR_FS_DOCUMENT_ROOT . (defined('DIR_ADMIN') ? DIR_ADMIN : 'admin/') . 'images/merz-it-service.png',
         );
 
         foreach ($remove_files_array as $delete_file) {
@@ -191,10 +190,10 @@ class MITS_productsImageFilenames
         } elseif (constant($const_prefix . 'FILENAME') == 'Productsname') {
             if (isset($data_arr['products_name'])) {
                 include_once(DIR_FS_INC . 'seo_url_href_mask.php');
-                $name = str_replace('/', constant($const_prefix . '_SEPARATOR'), seo_url_href_mask($data_arr['products_name'][$_SESSION['languages_id']]));
+                $name = str_replace('/', constant($const_prefix . 'SEPARATOR'), seo_url_href_mask($data_arr['products_name'][$_SESSION['languages_id']]));
             } elseif (isset($data_arr['categories_name'])) {
                 include_once(DIR_FS_INC . 'seo_url_href_mask.php');
-                $name = str_replace('/', constant($const_prefix . '_SEPARATOR'), seo_url_href_mask($data_arr['categories_name'][$_SESSION['languages_id']]));
+                $name = str_replace('/', constant($const_prefix . 'SEPARATOR'), seo_url_href_mask($data_arr['categories_name'][$_SESSION['languages_id']]));
             } else {
                 $name = '';
             }
