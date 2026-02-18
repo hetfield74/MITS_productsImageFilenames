@@ -31,7 +31,7 @@ class MITS_productsImageFilenames
     {
         $this->code = 'MITS_productsImageFilenames';
         $this->name = 'MODULE_CATEGORIES_' . strtoupper($this->code);
-        $this->version = '1.3.1';
+        $this->version = '1.3.2';
         $this->sort_order = defined($this->name . '_SORT_ORDER') ? constant($this->name . '_SORT_ORDER') : 0;
         $this->enabled = defined($this->name . '_STATUS') && (constant($this->name . '_STATUS') == 'true');
 
@@ -175,7 +175,7 @@ class MITS_productsImageFilenames
      */
     public function image_name($image_name, $id, $counter, $suffix, $name_arr, $srcID, $data_arr): string
     {
-        $catimages = '';
+        $cat_images = '';
         $const_prefix = $this->name . '_';
 
         // Dateiname des Bildes nach Upload beibehalten oder aus dem Artikelname/Kategoriename generieren, ansonsten wird der Dateiname des Bildes wie gewohnt aus der ID gebildet
@@ -209,11 +209,6 @@ class MITS_productsImageFilenames
         // Trenner mit Zähler hinzufügen (empfohlen)
         if (constant($const_prefix . 'ADD_COUNTER') == 'false' && constant($const_prefix . 'FILENAME') == 'Filename') {
             $separator = '';
-            if (self::strContains($image_name, '_list.') && isset($data_arr['categories_name'])) {
-                $catimages = '_list';
-            } elseif (self::strContains($image_name, '_mobile.') && isset($data_arr['categories_name'])) {
-                $catimages = '_mobile';
-            }
         } else {
             $separator = (isset($counter) && (int)$counter > 0) ? constant($const_prefix . 'SEPARATOR') . $counter : '';
         }
@@ -231,7 +226,13 @@ class MITS_productsImageFilenames
             $name = mb_strtolower($name, 'UTF-8');
         }
 
-        return $name . $separator . $catimages . '.' . $suffix;
+        if (self::strContains($counter, 'list') && !isset($data_arr['products_id'])) {
+            $cat_images = '_list';
+        } elseif (self::strContains($counter, 'mobile') && !isset($data_arr['products_id'])) {
+            $cat_images = '_mobile';
+        }
+
+        return $name . $separator . $cat_images . '.' . $suffix;
     }
 
     /**
@@ -241,7 +242,7 @@ class MITS_productsImageFilenames
      * @param string $needle Suchbegriff
      * @return bool
      */
-    protected static function strContains($haystack, $needle): bool
+    protected static function strContains(string $haystack, string $needle): bool
     {
         return function_exists('str_contains')
           ? str_contains($haystack, $needle)
