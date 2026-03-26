@@ -23,7 +23,7 @@ if (defined('MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_STATUS') && MODULE_CA
 }
 
 $lang_array = array(
-  'MODULE_' . $modulname . '_TITLE'                              => 'MITS File names for article and categorie pictures <span style="white-space:nowrap;">&copy; by <span style="padding:2px;background:#ffe;color:#6a9;font-weight:bold;">Hetfield (MerZ IT-SerVice)</span></span>',
+  'MODULE_' . $modulname . '_TITLE'                              => 'MITS File names for article and category pictures <span style="white-space:nowrap;">&copy; by <span style="padding:2px;background:#ffe;color:#6a9;font-weight:bold;">Hetfield (MerZ IT-SerVice)</span></span>',
   'MODULE_' . $modulname . '_DESCRIPTION'                        => '
   <div>
     <a href="https://www.merz-it-service.de/" target="_blank" title="go to the website from MerZ IT-SerVice">
@@ -32,13 +32,13 @@ $lang_array = array(
     <p>With this expansion, different variations of file names can be controlled for article images.</p>
     ' . $convert_tool . '
     <div style="text-align:center;">
-      <small>Only on Github is there always the latest version of the module!</small><br />
+      <small>The latest version of the module is always available on Github!</small><br />
       <a style="background:#6a9;color:#444" target="_blank" href="https://github.com/hetfield74/MITS_productsImageFilenames" class="button" onclick="this.blur();">MITS_productsImageFilenames on Github</a>
     </div>
     <p>If you have any questions, problems or wishes for this module or other concerns about the modified eCommerce shopsoftware, simply contact us:</p> 
     <div style="text-align:center;"><a style="background:#6a9;color:#444" target="_blank" href="https://www.merz-it-service.de/Kontakt.html" class="button" onclick="this.blur();">Contact page on merz-it-service.de</strong></a></div>
   </div>',
-  'MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_FILENAME_TITLE' => 'Dateiname bilden:',
+  'MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_FILENAME_TITLE' => 'Form file name:',
   'MODULE_CATEGORIES_MITS_PRODUCTSIMAGEFILENAMES_FILENAME_DESC'  => 'What should the file name be formed from?
     <ul>
     <li>None/Deactivated: The file name is formed from the products_id (system standard)</li>
@@ -48,25 +48,27 @@ $lang_array = array(
   'MODULE_' . $modulname . '_ADD_ID_TITLE'                       => 'Article-ID:',
   'MODULE_' . $modulname . '_ADD_ID_DESC'                        => 'Should the article ID (Products_ID) be integrated into the file name? <small> This happens automatically with file name = <i>None</i>. </small>',
   'MODULE_' . $modulname . '_ADD_COUNTER_TITLE'                  => 'Image counter?',
-  'MODULE_' . $modulname . '_ADD_COUNTER_DESC'                   => 'Should the image counter be integrated into the file name? Recommended to avoid confusion is automatically formed in file name = <i>None</i> and <i>Productsname</i>.',
-  'MODULE_' . $modulname . '_LOWERNAME_TITLE'                    => 'File name in small letters',
-  'MODULE_' . $modulname . '_LOWERNAME_DESC'                     => 'Forced the file name for pictures in small letters?',
-  'MODULE_' . $modulname . '_LOWERSUFFIX_TITLE'                  => 'File extension in small letters',
-  'MODULE_' . $modulname . '_LOWERSUFFIX_DESC'                   => 'Forced the file extension for images in small letters (e.g. .JPG -> .jpg)',
-  'MODULE_' . $modulname . '_SEPARATOR_TITLE'                    => 'Trennzeichen',
-  'MODULE_' . $modulname . '_SEPARATOR_DESC'                     => 'Soll als Trennzeichen im Dateinamen ein Bindestrich (-) oder Unterstrich (_) verwendet werden?',
+  'MODULE_' . $modulname . '_ADD_COUNTER_DESC'                   => 'Should the image counter be integrated into the file name? Recommended to avoid confusion; automatically formed when file name = <i>None</i> or <i>Productsname</i>.',
+  'MODULE_' . $modulname . '_LOWERNAME_TITLE'                    => 'File name in lowercase',
+  'MODULE_' . $modulname . '_LOWERNAME_DESC'                     => 'Force the file name for images to lowercase?',
+  'MODULE_' . $modulname . '_LOWERSUFFIX_TITLE'                  => 'File extension in lowercase',
+  'MODULE_' . $modulname . '_LOWERSUFFIX_DESC'                   => 'Force the file extension for images to lowercase (e.g. .JPG -> .jpg)',
+  'MODULE_' . $modulname . '_SEPARATOR_TITLE'                    => 'Separator',
+  'MODULE_' . $modulname . '_SEPARATOR_DESC'                     => 'Should a hyphen (-) or an underscore (_) be used as a separator in the file name?',
+  'MODULE_' . $modulname . '_SAVE_SIZES_TITLE'                   => 'Save image dimensions?',
+  'MODULE_' . $modulname . '_SAVE_SIZES_DESC'                    => 'Should the dimensions of the main article image be saved in the database?',
   'MODULE_' . $modulname . '_STATUS_TITLE'                       => 'Enable module?',
-  'MODULE_' . $modulname . '_STATUS_DESC'                        => 'Modules status',
+  'MODULE_' . $modulname . '_STATUS_DESC'                        => 'Module status',
   'MODULE_' . $modulname . '_SORT_ORDER_TITLE'                   => 'Sort order',
   'MODULE_' . $modulname . '_SORT_ORDER_DESC'                    => 'Order of processing. Smallest number is executed first.',
   'MODULE_' . $modulname . '_UPDATE_AVAILABLE_TITLE'             => ' <span style="font-weight:bold;color:#900;background:#ff6;padding:2px;border:1px solid #900;">Please carry out module updates!</span>',
   'MODULE_' . $modulname . '_UPDATE_AVAILABLE_DESC'              => '',
-  'MODULE_' . $modulname . '_UPDATE_FINISHED'                    => 'The Modul MITS File names for article and categorie pictures module has been updated.',
+  'MODULE_' . $modulname . '_UPDATE_FINISHED'                    => 'The MITS File names for article and category pictures module has been updated.',
   'MODULE_' . $modulname . '_UPDATE_ERROR'                       => 'Error',
   'MODULE_' . $modulname . '_UPDATE_MODUL'                       => 'Update module',
-  'MODULE_' . $modulname . '_DELETE_MODUL'                       => 'The MITS File names for article and categorie pictures module has been deleted from the server.',
-  'MODULE_' . $modulname . '_CONFIRM_DELETE_MODUL'               => 'Are you sure you want to delete the MITS File names for article and categorie pictures module and all files from the server?',
-  'MODULE_' . $modulname . '_DELETE_FINISHED'                    => 'The MITS File names for article and categorie pictures module has been deleted from the server.',
+  'MODULE_' . $modulname . '_DELETE_MODUL'                       => 'The MITS File names for article and category pictures module has been deleted from the server.',
+  'MODULE_' . $modulname . '_CONFIRM_DELETE_MODUL'               => 'Are you sure you want to delete the MITS File names for article and category pictures module and all associated files from the server?',
+  'MODULE_' . $modulname . '_DELETE_FINISHED'                    => 'The MITS File names for article and category pictures module has been successfully deleted from the server.',
 );
 
 foreach ($lang_array as $key => $val) {

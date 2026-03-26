@@ -31,7 +31,7 @@ class MITS_productsImageFilenames
     {
         $this->code = 'MITS_productsImageFilenames';
         $this->name = 'MODULE_CATEGORIES_' . strtoupper($this->code);
-        $this->version = '1.3.2';
+        $this->version = '1.4.0';
         $this->sort_order = defined($this->name . '_SORT_ORDER') ? constant($this->name . '_SORT_ORDER') : 0;
         $this->enabled = defined($this->name . '_STATUS') && (constant($this->name . '_STATUS') == 'true');
 
@@ -76,16 +76,7 @@ class MITS_productsImageFilenames
      */
     public function install(): void
     {
-        $const_prefix = $this->name . '_';
-        xtc_db_query("INSERT INTO " . TABLE_CONFIGURATION . " (configuration_key, configuration_value, configuration_group_id, sort_order, set_function, date_added) VALUES ('" . $const_prefix . "STATUS', 'true', 6, 1,'xtc_cfg_select_option(array(\'true\', \'false\'), ', now())");
-        xtc_db_query("INSERT INTO " . TABLE_CONFIGURATION . " (configuration_key, configuration_value, configuration_group_id, sort_order, date_added) VALUES ('" . $const_prefix . "SORT_ORDER', '10', 6, 3, now())");
-        xtc_db_query("INSERT INTO " . TABLE_CONFIGURATION . " (configuration_key, configuration_value, configuration_group_id, sort_order, set_function, date_added) VALUES ('" . $const_prefix . "FILENAME', 'Filename', 6, 4, 'xtc_cfg_select_option(array(\'None\', \'Filename\', \'Productsname\'), ', now())");
-        xtc_db_query("INSERT INTO " . TABLE_CONFIGURATION . " (configuration_key, configuration_value, configuration_group_id, sort_order, set_function, date_added) VALUES ('" . $const_prefix . "ADD_ID', 'true', 6, 5,'xtc_cfg_select_option(array(\'true\', \'false\'), ', now())");
-        xtc_db_query("INSERT INTO " . TABLE_CONFIGURATION . " (configuration_key, configuration_value, configuration_group_id, sort_order, set_function, date_added) VALUES ('" . $const_prefix . "ADD_COUNTER', 'true', 6, 6,'xtc_cfg_select_option(array(\'true\', \'false\'), ', now())");
-        xtc_db_query("INSERT INTO " . TABLE_CONFIGURATION . " (configuration_key, configuration_value, configuration_group_id, sort_order, set_function, date_added) VALUES ('" . $const_prefix . "LOWERNAME', 'true', 6, 7,'xtc_cfg_select_option(array(\'true\', \'false\'), ', now())");
-        xtc_db_query("INSERT INTO " . TABLE_CONFIGURATION . " (configuration_key, configuration_value, configuration_group_id, sort_order, set_function, date_added) VALUES ('" . $const_prefix . "LOWERSUFFIX', 'true', 6, 8,'xtc_cfg_select_option(array(\'true\', \'false\'), ', now())");
-        xtc_db_query("INSERT INTO " . TABLE_CONFIGURATION . " (configuration_key, configuration_value, configuration_group_id, sort_order, set_function, date_added) VALUES ('" . $const_prefix . "SEPARATOR', '_', 6, 8,'xtc_cfg_select_option(array(\'-\', \'_\'), ', now())");
-        xtc_db_query("INSERT INTO " . TABLE_CONFIGURATION . " (configuration_key, configuration_value, configuration_group_id, sort_order, set_function, date_added) VALUES ('" . $const_prefix . "VERSION', '" . $this->version . "', 6, 99, NULL, now())");
+        $this->dbChanges();
     }
 
     /**
@@ -103,13 +94,7 @@ class MITS_productsImageFilenames
     {
         global $messageStack;
 
-        $const_prefix = $this->name . '_';
-
-        xtc_db_query("UPDATE " . TABLE_CONFIGURATION . " SET configuration_value = '" . $this->version . "' WHERE configuration_key = '" . $this->name . "_VERSION'");
-
-        if (!defined($const_prefix . 'SEPARATOR')) {
-            xtc_db_query("INSERT INTO " . TABLE_CONFIGURATION . " (configuration_key, configuration_value, configuration_group_id, sort_order, set_function, date_added) VALUES ('" . $const_prefix . "SEPARATOR', '_', 6, 8,'xtc_cfg_select_option(array(\'-\', \'_\'), ', now())");
-        }
+        $this->dbChanges();
 
         $messageStack->add_session(constant($this->name . '_UPDATE_FINISHED'), 'success');
     }
@@ -141,8 +126,68 @@ class MITS_productsImageFilenames
           $const_prefix . 'ADD_COUNTER',
           $const_prefix . 'LOWERNAME',
           $const_prefix . 'LOWERSUFFIX',
-          $const_prefix . 'SEPARATOR'
+          $const_prefix . 'SEPARATOR',
+          $const_prefix . 'SAVE_SIZES',
         );
+    }
+
+    /**
+     * @return void
+     */
+    public function dbChanges(): void
+    {
+        $const_prefix = $this->name . '_';
+        if (!defined($const_prefix . 'STATUS')) {
+            xtc_db_query("INSERT INTO " . TABLE_CONFIGURATION . " (configuration_key, configuration_value, configuration_group_id, sort_order, set_function, date_added) VALUES ('" . $const_prefix . "STATUS', 'true', 6, 1,'xtc_cfg_select_option(array(\'true\', \'false\'), ', now())");
+        }
+        if (!defined($const_prefix . 'SORT_ORDER')) {
+            xtc_db_query("INSERT INTO " . TABLE_CONFIGURATION . " (configuration_key, configuration_value, configuration_group_id, sort_order, date_added) VALUES ('" . $const_prefix . "SORT_ORDER', '10', 6, 3, now())");
+        }
+        if (!defined($const_prefix . 'FILENAME')) {
+            xtc_db_query("INSERT INTO " . TABLE_CONFIGURATION . " (configuration_key, configuration_value, configuration_group_id, sort_order, set_function, date_added) VALUES ('" . $const_prefix . "FILENAME', 'Filename', 6, 4, 'xtc_cfg_select_option(array(\'None\', \'Filename\', \'Productsname\'), ', now())");
+        }
+        if (!defined($const_prefix . 'ADD_ID')) {
+            xtc_db_query("INSERT INTO " . TABLE_CONFIGURATION . " (configuration_key, configuration_value, configuration_group_id, sort_order, set_function, date_added) VALUES ('" . $const_prefix . "ADD_ID', 'true', 6, 5,'xtc_cfg_select_option(array(\'true\', \'false\'), ', now())");
+        }
+        if (!defined($const_prefix . 'ADD_COUNTER')) {
+            xtc_db_query("INSERT INTO " . TABLE_CONFIGURATION . " (configuration_key, configuration_value, configuration_group_id, sort_order, set_function, date_added) VALUES ('" . $const_prefix . "ADD_COUNTER', 'true', 6, 6,'xtc_cfg_select_option(array(\'true\', \'false\'), ', now())");
+        }
+        if (!defined($const_prefix . 'LOWERNAME')) {
+            xtc_db_query("INSERT INTO " . TABLE_CONFIGURATION . " (configuration_key, configuration_value, configuration_group_id, sort_order, set_function, date_added) VALUES ('" . $const_prefix . "LOWERNAME', 'true', 6, 7,'xtc_cfg_select_option(array(\'true\', \'false\'), ', now())");
+        }
+        if (!defined($const_prefix . 'LOWERSUFFIX')) {
+            xtc_db_query("INSERT INTO " . TABLE_CONFIGURATION . " (configuration_key, configuration_value, configuration_group_id, sort_order, set_function, date_added) VALUES ('" . $const_prefix . "LOWERSUFFIX', 'true', 6, 8,'xtc_cfg_select_option(array(\'true\', \'false\'), ', now())");
+        }
+        if (!defined($const_prefix . 'SEPARATOR')) {
+            xtc_db_query("INSERT INTO " . TABLE_CONFIGURATION . " (configuration_key, configuration_value, configuration_group_id, sort_order, set_function, date_added) VALUES ('" . $const_prefix . "SEPARATOR', '_', 6, 8,'xtc_cfg_select_option(array(\'-\', \'_\'), ', now())");
+        }
+        if (!defined($const_prefix . 'SAVE_SIZES')) {
+            xtc_db_query("INSERT INTO " . TABLE_CONFIGURATION . " (configuration_key, configuration_value, configuration_group_id, sort_order, set_function, date_added) VALUES ('" . $const_prefix . "SAVE_SIZES', 'true', 6, 9,'xtc_cfg_select_option(array(\'true\', \'false\'), ', now())");
+        }
+        if (!defined($const_prefix . 'VERSION')) {
+            xtc_db_query("INSERT INTO " . TABLE_CONFIGURATION . " (configuration_key, configuration_value, configuration_group_id, sort_order, set_function, date_added) VALUES ('" . $const_prefix . "VERSION', '" . $this->version . "', 6, 99, NULL, now())");
+        } else {
+            xtc_db_query("UPDATE " . TABLE_CONFIGURATION . " SET configuration_value = '" . $this->version . "' WHERE configuration_key = '" . $const_prefix . "VERSION'");
+        }
+
+        if (!$this->columnExists(TABLE_PRODUCTS, 'products_image_sizes')) {
+            xtc_db_query("ALTER TABLE " . TABLE_PRODUCTS . " ADD COLUMN products_image_sizes TEXT NULL");
+        }
+        if (!$this->columnExists(TABLE_CATEGORIES, 'categories_image_sizes')) {
+            xtc_db_query("ALTER TABLE " . TABLE_CATEGORIES . " ADD COLUMN categories_image_sizes TEXT NULL");
+        }
+    }
+
+
+    /**
+     * @param $table
+     * @param $column
+     * @return bool
+     */
+    private function columnExists($table, $column): bool
+    {
+        $res = xtc_db_query("SHOW COLUMNS FROM {$table} LIKE '{$column}'");
+        return xtc_db_num_rows($res) > 0;
     }
 
     /**
@@ -233,6 +278,114 @@ class MITS_productsImageFilenames
         }
 
         return $name . $separator . $cat_images . '.' . $suffix;
+    }
+
+    /**
+     * @param array $products_data Die gesendeten Produktdaten
+     * @param int $products_id Die ID des Produkts
+     */
+    public function insert_product_after(array $products_data, int $products_id): void
+    {
+        if (defined($this->name . '_SAVE_SIZES') && constant($this->name . '_SAVE_SIZES') == 'true') {
+            $image_query = xtc_db_query("SELECT products_image FROM " . TABLE_PRODUCTS . " WHERE products_id = " . (int)$products_id);
+            $image_data = xtc_db_fetch_array($image_query);
+
+            $filename = $image_data['products_image'];
+
+            if (empty($filename)) {
+                return;
+            }
+
+            $types = ['mini', 'thumbnail', 'midi', 'info', 'popup'];
+            $image_sizes = [];
+
+            foreach ($types as $type) {
+                $constant_name = 'DIR_WS_' . strtoupper($type) . '_IMAGES';
+                $path = defined($constant_name) ? constant($constant_name) : 'images/product_images/' . $type . '_images/';
+
+                $full_path = DIR_FS_CATALOG . $path . $filename;
+
+                if (defined('IMAGE_TYPE_EXTENSION') && IMAGE_TYPE_EXTENSION != 'default') {
+                    $path_info = pathinfo($full_path);
+                    $alt_path = $path_info['dirname'] . '/' . $path_info['filename'] . '.' . IMAGE_TYPE_EXTENSION;
+                    if (is_file($alt_path)) {
+                        $full_path = $alt_path;
+                    }
+                }
+
+                if (is_file($full_path)) {
+                    $size = getimagesize($full_path);
+                    if ($size) {
+                        $image_sizes[$type] = [
+                          'w' => $size[0],
+                          'h' => $size[1]
+                        ];
+                    }
+                }
+            }
+
+            if (!empty($image_sizes)) {
+                xtc_db_query(
+                  "UPDATE " . TABLE_PRODUCTS . " 
+                      SET products_image_sizes = '" . xtc_db_input(json_encode($image_sizes)) . "' 
+                      WHERE products_id = " . (int)$products_id
+                );
+            }
+        }
+    }
+
+    /**
+     * Hook für Kategorienbilder
+     * @param string $image_name Der Name der Bilddatei
+     * @param string $image_type (Optional, falls vom System übergeben)
+     */
+    public function categories_image_process(string $image_name, string $image_type = ''): void
+    {
+        if (defined($this->name . '_SAVE_SIZES') && constant($this->name . '_SAVE_SIZES') == 'true') {
+            $cID = (isset($_GET['cID'])) ? (int)$_GET['cID'] : 0;
+
+            if ($cID === 0 || empty($image_name)) {
+                return;
+            }
+
+            $image_sizes = [];
+            $path = defined('DIR_WS_CATEGORIES_IMAGES') ? DIR_WS_CATEGORIES_IMAGES : 'images/categories/';
+
+            $suffixes = ['', '_list', '_mobile'];
+
+            $dot_pos = strrpos($image_name, '.');
+            $base_name = substr($image_name, 0, $dot_pos);
+            $extension = substr($image_name, $dot_pos);
+
+            foreach ($suffixes as $suffix) {
+                $current_filename = $base_name . $suffix . $extension;
+                $full_path = DIR_FS_CATALOG . $path . $current_filename;
+
+                if (defined('IMAGE_TYPE_EXTENSION') && IMAGE_TYPE_EXTENSION != 'default') {
+                    $alt_path = DIR_FS_CATALOG . $path . $base_name . $suffix . '.' . IMAGE_TYPE_EXTENSION;
+                    if (is_file($alt_path)) {
+                        $full_path = $alt_path;
+                    }
+                }
+
+                if (is_file($full_path)) {
+                    $size = getimagesize($full_path);
+                    if ($size) {
+                        $key = ($suffix == '') ? 'default' : ltrim($suffix, '_');
+                        $image_sizes[$key] = [
+                          'w' => $size[0],
+                          'h' => $size[1]
+                        ];
+                    }
+                }
+            }
+
+            if (!empty($image_sizes)) {
+                xtc_db_query("UPDATE " . TABLE_CATEGORIES . " 
+                      SET categories_image_sizes = '" . xtc_db_input(json_encode($image_sizes)) . "' 
+                      WHERE categories_id = '" . (int)$cID . "'");
+            }
+        }
     }
 
     /**

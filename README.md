@@ -14,6 +14,9 @@ Wird der ursprüngliche Dateiname behalten, kann auch eingestellt werden, ob die
 
 Außerdem kann man das Modul die Kleinschreibung der Dateiendung (z.B. .JPG -> .jpg) erzwingen lassen.
 
+Neu seit Version 1.4.0 kann man das Modul die Bildabmessungen für Hauptartikelbild und Kategoriebilder in der Datenbank speichern lassen. 
+Diese kann man dann mit unserem Modul MITS_ImageSize nutzen, um sie im Template verfügbar zu machen. Dies sorgt für ein bessere PageSpeed-Ergebnis.
+
 <hr />
 
 ## Anleitung für das Klassenerweiterungsmodul MITS_productsImageFilenames für modified eCommerce Shopsoftware
