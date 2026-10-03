@@ -31,10 +31,6 @@ $lang_array = array(
     </a><br /> 
     <p>Mit dieser Erweiterung lassen sich verschiedene Variationen von Dateinamen f&uuml;r Artikel- und Kategoriebilder steuern.</p>
     ' . $convert_tool . '
-    <div style="text-align:center;">
-      <small>Nur auf Github gibt es immer die aktuellste Version des Moduls!</small><br />
-      <a style="background:#6a9;color:#444" target="_blank" href="https://github.com/hetfield74/MITS_productsImageFilenames" class="button" onclick="this.blur();">MITS_productsImageFilenames on Github</a>
-    </div>
     <p>Bei Fragen, Problemen oder W&uuml;nschen zu diesem Modul oder auch zu anderen Anliegen rund um die modified eCommerce Shopsoftware nehmen Sie einfach Kontakt zu uns auf:</p> 
     <div style="text-align:center;"><a style="background:#6a9;color:#444" target="_blank" href="https://www.merz-it-service.de/Kontakt.html" class="button" onclick="this.blur();">Kontaktseite auf MerZ-IT-SerVice.de</strong></a></div>
   </div>',
